@@ -58,5 +58,8 @@ class HandDetector():
                 self.fingerup[finger[2]] = 1
         return self.fingerup
     
-    def distance(self, index1, index2, landmark_list):
+    def distance_tips(self, index1, index2, landmark_list):
         return np.linalg.norm(np.array(landmark_list[index1][1:]) - np.array(landmark_list[index2][1:]))
+
+    def distance(self, p1, p2):
+        return np.linalg.norm(np.array(p1) - np.array(p2))
