@@ -89,7 +89,7 @@ def main():
                 
                 
         # Very important part of the project! 
-        # The following lines of code helps in masking the blacknoard drawing on the webcam!
+        # The following lines of code helps in masking the blackboard drawing on the webcam!
         imgGRAY = cv2.cvtColor(blackboard, cv2.COLOR_BGR2GRAY) # Converting blackboard to grayscale
         _, imgINV = cv2.threshold(imgGRAY, 0, 255, cv2.THRESH_BINARY_INV) # The cv2.threshold function converts the grayscale image into binary responsible for masking.
         imgINV = cv2.cvtColor(imgINV, cv2.COLOR_GRAY2BGR) # Converting to BGR format to fit he image during bitwise operation (binary image is 2D but BGR image is 3D as color image is basically layers of amount of BGR color.)
