@@ -85,12 +85,16 @@ def main():
                 xp, yp = landmark_list[8][1:]
                 print('Drawing Mode')
                 
-        imgGRAY = cv2.cvtColor(blackboard, cv2.COLOR_BGR2GRAY)
-        
-        _, imgINV = cv2.threshold(imgGRAY, 0, 255, cv2.THRESH_BINARY_INV)
-        imgINV = cv2.cvtColor(imgINV, cv2.COLOR_GRAY2BGR)
-        img = cv2.bitwise_and(img, imgINV)
-        img = cv2.bitwise_or(img, blackboard)
+                
+                
+                
+        # Very important part of the project! 
+        # The following lines of code helps in masking the blacknoard drawing on the webcam!
+        imgGRAY = cv2.cvtColor(blackboard, cv2.COLOR_BGR2GRAY) # Converting blackboard to grayscale
+        _, imgINV = cv2.threshold(imgGRAY, 0, 255, cv2.THRESH_BINARY_INV) # The cv2.threshold function converts the grayscale image into binary responsible for masking.
+        imgINV = cv2.cvtColor(imgINV, cv2.COLOR_GRAY2BGR) # Converting to BGR format to fit he image during bitwise operation (binary image is 2D but BGR image is 3D as color image is basically layers of amount of BGR color.)
+        img = cv2.bitwise_and(img, imgINV) # Masking binary image on actual webcam. 
+        img = cv2.bitwise_or(img, blackboard) # The above image generated consists of black drawing. Therefore we need to marge the black drawing to colored. Therefore we apply bitwise_or operation on img and blackboard.
         cv2.imshow('w', img)
         cv2.waitKey(1)
     
