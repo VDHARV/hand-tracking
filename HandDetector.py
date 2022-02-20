@@ -46,10 +46,10 @@ class HandDetector():
 
     def finger_up(self, landmark_list):
 
-        self.fingers = [(landmark_list[8][2], landmark_list[7][2], 0), 
-                   (landmark_list[12][2], landmark_list[11][2], 1), 
-                   (landmark_list[16][2], landmark_list[15][2], 2), 
-                   (landmark_list[20][2], landmark_list[19][2], 3), 
+        self.fingers = [(landmark_list[8][2], landmark_list[6][2], 0), 
+                   (landmark_list[12][2], landmark_list[10][2], 1), 
+                   (landmark_list[16][2], landmark_list[14][2], 2), 
+                   (landmark_list[20][2], landmark_list[18][2], 3), 
                    (landmark_list[5][1], landmark_list[4][1], 4)]
 
         self.fingerup = [0, 0, 0, 0, 0]
